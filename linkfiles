@@ -65,7 +65,7 @@ foreach ($output as $line) {
 
     }
 }
-clearstatcache();
+
 if (!$found && !$found2) {
 
         
